@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwl.arknight.mapper.DisadvantagedMapper">
+
+    <select id="getAllDisadvantagedCount" resultType="java.lang.Integer">
+        select count(*) from disadvantaged;
+    </select>
+    <select id="getDisadvantaged" resultType="com.lwl.arknight.entity.Disadvantaged">
+        select * from disadvantaged where number=#{number};
+    </select>
+</mapper>

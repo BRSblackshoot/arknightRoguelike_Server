@@ -1,0 +1,35 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/arknight?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: mysql账号
+    password: mysql密码
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 400MB
+  task:
+    scheduling:   ##Scheduled\u8C03\u5EA6\u7684\u7EBF\u7A0B\u6570\u91CF
+      pool:
+        size: 50
+    execution:    ##\u5F02\u6B65\u4EFB\u52A1\u7EBF\u7A0B\u6C60\u7684\u6570\u636E  @Async\u7684\u7EBF\u7A0B\u6C60\u6570\u91CF
+      pool:
+        core-size: 8
+#\u914D\u7F6E\u65E5\u5FD7
+logging:
+  level:
+    com:
+      javasm: debug
+  #\u65E5\u5FD7\u8F93\u51FA\u8DEF\u5F84
+  file:
+    name: 日志名称.log
+
+
+
+
+#\u5F53mapper\u4E0D\u540C\u4E00\u4E2A\u76EE\u5F55\u52A0\u8F7D mapper\u914D\u7F6E\u6587\u4EF6
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
